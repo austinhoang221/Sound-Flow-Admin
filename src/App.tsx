@@ -1,23 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Button } from "./components/ui/button";
 
 function App() {
+  const [count, setCount] = useState(0);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <header className="h-screen flex flex-col items-center justify-center">
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Button asChild variant="link">
+          <a
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </Button>
+        <Button
+          variant="outline"
+          onClick={() => setCount((count) => count + 1)}
         >
-          Learn React
-        </a>
+          Count is {count}
+        </Button>
       </header>
     </div>
   );
