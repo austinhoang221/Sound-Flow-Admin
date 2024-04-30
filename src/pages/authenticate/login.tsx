@@ -13,15 +13,11 @@ import { Input } from "@/components/ui/input";
 import { AuthenticationService } from "@/api/services/authenticate.service";
 import { ILoginModel } from "@/utils/models/ILoginModel";
 import { useNavigate } from "react-router";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { StatusCode } from "@/utils/enums/statusCode";
+import "./index.scss";
+import { useToast } from "@/components/ui/use-toast";
 
 const formSchema = z.object({
   username: z.string(),
@@ -33,6 +29,7 @@ const formSchema = z.object({
 
 export function Login() {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -45,13 +42,14 @@ export function Login() {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     await AuthenticationService.logIn(values as ILoginModel).then((res) => {
       if (res?.code === StatusCode.OK) {
+        localStorage.setItem("user", JSON.stringify(res?.data));
         navigate("/");
       }
     });
   };
 
   return (
-    <div className="h-screen flex items-center">
+    <div className="h-screen flex items-center login">
       <Card className="w-[350px] mx-auto ">
         <CardHeader>
           <CardTitle className="text-center">Login</CardTitle>
