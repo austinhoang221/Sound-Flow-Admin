@@ -44,6 +44,12 @@ export function Login() {
       if (res?.code === StatusCode.OK) {
         localStorage.setItem("user", JSON.stringify(res?.data));
         navigate("/");
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Some thing went wrong",
+          description: "Incorrect username or password",
+        });
       }
     });
   };
@@ -61,14 +67,12 @@ export function Login() {
                 control={form.control}
                 name="username"
                 render={({ field }) => (
-                  <>
-                    <FormItem>
-                      <FormControl>
-                        <Input placeholder="Username" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  </>
+                  <FormItem>
+                    <FormControl>
+                      <Input placeholder="Username" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
                 )}
               />
               <FormField

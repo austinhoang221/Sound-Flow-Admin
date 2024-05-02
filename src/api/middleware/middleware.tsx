@@ -63,6 +63,7 @@ axiosInstance.interceptors.request.use(
     if (user) {
       config.headers.Authorization = `Bearer ${JSON.parse(user).token}`;
     }
+    config.headers["X-ApplicationId"] = "5CFE32B3-5A2A-49FB-B2FB-8B491C109820";
     return config;
   },
   (error) => Promise.reject(error)
