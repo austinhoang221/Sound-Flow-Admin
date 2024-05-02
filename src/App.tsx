@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from "react-router";
 import { PrivateRoute } from "./hoc/privateRoute";
 import { Login } from "./pages/authenticate/login";
 import { Content } from "./pages/content/content";
+import { Home } from "./pages/content/home/home";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
           <Route path="/">
             <Route>
               <Route path="/" element={<Navigate to="/home" replace />} />
-              <Route path="/dashboard" element={<Content />} />
+              <Route path="/home" element={<Home />} />
 
               {/* Children */}
             </Route>
