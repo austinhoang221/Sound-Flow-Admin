@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { AuthenticationService } from "@/api/services/authenticate.service";
-import { ILoginModel } from "@/utils/models/ILoginModel";
+import { ILoginModel } from "@/utils/models/authenticate/ILoginModel";
 import { useNavigate } from "react-router";
 import { Checkbox } from "@/components/ui/checkbox";
 import { StatusCode } from "@/utils/enums/statusCode";

@@ -3,5 +3,6 @@ export default class Endpoint {
     return "https://localhost:7074/v1/";
   }
 
-  public static readonly login: string = this.baseUrl + "auth/login";
+  public static readonly Login: string = this.baseUrl + "auth/login";
+  public static readonly Album: string = this.baseUrl + "album";
 }
