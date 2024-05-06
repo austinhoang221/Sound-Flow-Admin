@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router";
 import { PrivateRoute } from "./hoc/privateRoute";
-import { Login } from "./pages/authenticate/login";
+import { Login } from "./pages/authenticate/login/login";
 import { Content } from "./pages/content/content";
 import { Home } from "./pages/content/home/home";
 
