@@ -6,4 +6,5 @@ export default class Endpoint {
   public static readonly Login: string = this.baseUrl + "auth/login";
   public static readonly Album: string = this.baseUrl + "album";
   public static readonly Genre: string = this.baseUrl + "genre";
+  public static readonly Track: string = this.baseUrl + "track";
 }
