@@ -24,6 +24,7 @@ import { Separator } from "@/components/ui/separator";
 
 export function Content() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
+
   return (
     <TooltipProvider delayDuration={0}>
       <ResizablePanelGroup
@@ -36,11 +37,11 @@ export function Content() {
         className="h-full max-h-[800px] items-stretch"
       >
         <ResizablePanel
-          defaultSize={265}
+          defaultSize={235}
           collapsedSize={8}
           collapsible={true}
           minSize={8}
-          maxSize={20}
+          maxSize={15}
           onCollapse={() => setIsCollapsed((prev) => !prev)}
           onExpand={() => setIsCollapsed((prev) => !prev)}
           className={cn(
@@ -59,40 +60,77 @@ export function Content() {
             isCollapsed={isCollapsed}
             links={[
               {
+                key: "inbox",
                 title: "Inbox",
-                label: "128",
                 icon: Inbox,
-                variant: "default",
-              },
-              {
-                title: "Drafts",
-                label: "9",
-                icon: File,
-                variant: "ghost",
-              },
-              {
-                title: "Sent",
-                label: "",
-                icon: Send,
-                variant: "ghost",
-              },
-              {
-                title: "Junk",
-                label: "23",
-                icon: ArchiveX,
-                variant: "ghost",
-              },
-              {
-                title: "Trash",
-                label: "",
-                icon: Trash2,
-                variant: "ghost",
-              },
-              {
-                title: "Archive",
-                label: "",
-                icon: Archive,
-                variant: "ghost",
+
+                link: "",
+                children: [
+                  {
+                    key: "draft",
+                    title: "Drafts",
+                    icon: File,
+                    link: "link",
+                    children: [
+                      {
+                        key: "users",
+                        title: "USERS",
+                        icon: Send,
+
+                        link: "link",
+                        children: [
+                          {
+                            key: "users",
+                            title: "USERS1",
+                            icon: Send,
+
+                            link: "link",
+                          },
+                          {
+                            key: "junk12",
+                            title: "Junk",
+                            icon: ArchiveX,
+                            link: "link",
+                          },
+                        ],
+                      },
+                      {
+                        key: "junk1",
+                        title: "Junk",
+                        icon: ArchiveX,
+                        link: "link",
+                      },
+                    ],
+                  },
+                  {
+                    key: "tracks",
+                    title: "TRACKS",
+                    icon: Send,
+
+                    link: "link",
+                  },
+                  {
+                    key: "junk",
+                    title: "Junk",
+                    icon: ArchiveX,
+
+                    link: "link",
+                  },
+                  {
+                    key: "trash",
+                    title: "Trash",
+                    icon: Trash2,
+
+                    link: "link",
+                  },
+                  {
+                    key: "archive",
+                    title: "Archive",
+                    icon: Archive,
+
+                    link: "link",
+                  },
+                ],
               },
             ]}
           />
@@ -101,34 +139,39 @@ export function Content() {
             isCollapsed={isCollapsed}
             links={[
               {
+                key: "social",
                 title: "Social",
-                label: "972",
                 icon: Users2,
-                variant: "ghost",
+
+                link: "",
               },
               {
+                key: "updates",
                 title: "Updates",
-                label: "342",
                 icon: AlertCircle,
-                variant: "ghost",
+
+                link: "",
               },
               {
+                key: "forums",
                 title: "Forums",
-                label: "128",
                 icon: MessagesSquare,
-                variant: "ghost",
+
+                link: "",
               },
               {
+                key: "shopping",
                 title: "Shopping",
-                label: "8",
                 icon: ShoppingCart,
-                variant: "ghost",
+
+                link: "",
               },
               {
+                key: "promotions",
                 title: "Promotions",
-                label: "21",
                 icon: Archive,
-                variant: "ghost",
+
+                link: "",
               },
             ]}
           />

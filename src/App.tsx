@@ -4,6 +4,8 @@ import { PrivateRoute } from "./hoc/privateRoute";
 import { Login } from "./pages/authenticate/login/login";
 import { Content } from "./pages/content/content";
 import { Home } from "./pages/content/home/home";
+import { Tracks } from "./pages/content/tracks/tracks";
+import { Users } from "./pages/content/users/users";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
             <Route>
               <Route path="/" element={<Navigate to="/home" replace />} />
               <Route path="/home" element={<Home />} />
+              <Route path="/tracks" element={<Tracks />} />
+              <Route path="/users" element={<Users />} />
             </Route>
           </Route>
         </Route>
