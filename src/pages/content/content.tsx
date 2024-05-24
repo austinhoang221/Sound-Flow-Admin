@@ -7,16 +7,11 @@ import {
 import { cn } from "@/lib/utils";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import {
-  AlertCircle,
-  Archive,
-  ArchiveX,
-  File,
-  Inbox,
-  MessagesSquare,
-  Send,
-  ShoppingCart,
-  Trash2,
-  Users2,
+  AudioWaveform,
+  DiscAlbum,
+  Home,
+  ListMusic,
+  UserCog,
 } from "lucide-react";
 import { Nav } from "./nav/navigation";
 import { Outlet } from "react-router";
@@ -24,23 +19,24 @@ import { Separator } from "@/components/ui/separator";
 
 export function Content() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
+
   return (
     <TooltipProvider delayDuration={0}>
       <ResizablePanelGroup
         direction="horizontal"
-        onLayout={(sizes: number[]) => {
-          document.cookie = `react-resizable-panels:layout=${JSON.stringify(
-            sizes
-          )}`;
-        }}
-        className="h-full max-h-[800px] items-stretch"
+        // onLayout={(sizes: number[]) => {
+        //   document.cookie = `react-resizable-panels:layout=${JSON.stringify(
+        //     sizes
+        //   )}`;
+        // }}
+        className="h-screen items-stretch"
       >
         <ResizablePanel
-          defaultSize={265}
+          defaultSize={235}
           collapsedSize={8}
           collapsible={true}
-          minSize={8}
-          maxSize={20}
+          minSize={10}
+          maxSize={15}
           onCollapse={() => setIsCollapsed((prev) => !prev)}
           onExpand={() => setIsCollapsed((prev) => !prev)}
           className={cn(
@@ -50,8 +46,8 @@ export function Content() {
         >
           <div
             className={cn(
-              "flex h-[52px] items-center justify-center",
-              isCollapsed ? "h-[52px]" : "px-2"
+              "flex h-[80px] items-center justify-center",
+              isCollapsed ? "h-[80px]" : "px-2"
             )}
           ></div>
           <Separator />
@@ -59,76 +55,29 @@ export function Content() {
             isCollapsed={isCollapsed}
             links={[
               {
-                title: "Inbox",
-                label: "128",
-                icon: Inbox,
-                variant: "default",
+                key: "home",
+                title: "Dashboard",
+                icon: Home,
               },
               {
-                title: "Drafts",
-                label: "9",
-                icon: File,
-                variant: "ghost",
+                key: "album",
+                title: "Album",
+                icon: DiscAlbum,
               },
               {
-                title: "Sent",
-                label: "",
-                icon: Send,
-                variant: "ghost",
+                key: "genre",
+                title: "Genre",
+                icon: ListMusic,
               },
               {
-                title: "Junk",
-                label: "23",
-                icon: ArchiveX,
-                variant: "ghost",
+                key: "tracks",
+                title: "Tracks",
+                icon: AudioWaveform,
               },
               {
-                title: "Trash",
-                label: "",
-                icon: Trash2,
-                variant: "ghost",
-              },
-              {
-                title: "Archive",
-                label: "",
-                icon: Archive,
-                variant: "ghost",
-              },
-            ]}
-          />
-          <Separator />
-          <Nav
-            isCollapsed={isCollapsed}
-            links={[
-              {
-                title: "Social",
-                label: "972",
-                icon: Users2,
-                variant: "ghost",
-              },
-              {
-                title: "Updates",
-                label: "342",
-                icon: AlertCircle,
-                variant: "ghost",
-              },
-              {
-                title: "Forums",
-                label: "128",
-                icon: MessagesSquare,
-                variant: "ghost",
-              },
-              {
-                title: "Shopping",
-                label: "8",
-                icon: ShoppingCart,
-                variant: "ghost",
-              },
-              {
-                title: "Promotions",
-                label: "21",
-                icon: Archive,
-                variant: "ghost",
+                key: "user",
+                title: "User",
+                icon: UserCog,
               },
             ]}
           />

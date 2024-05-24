@@ -2,8 +2,12 @@ import { Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router";
 import { PrivateRoute } from "./hoc/privateRoute";
 import { Login } from "./pages/authenticate/login/login";
+import { Album } from "./pages/content/album/album";
 import { Content } from "./pages/content/content";
+import { Genre } from "./pages/content/genre/genre";
 import { Home } from "./pages/content/home/home";
+import { Tracks } from "./pages/content/tracks/tracks";
+import { User } from "./pages/content/user/user";
 
 function App() {
   return (
@@ -22,6 +26,10 @@ function App() {
             <Route>
               <Route path="/" element={<Navigate to="/home" replace />} />
               <Route path="/home" element={<Home />} />
+              <Route path="/tracks" element={<Tracks />} />
+              <Route path="/album" element={<Album />} />
+              <Route path="/genre" element={<Genre />} />
+              <Route path="/user" element={<User />} />
             </Route>
           </Route>
         </Route>
