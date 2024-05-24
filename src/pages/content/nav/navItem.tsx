@@ -55,7 +55,7 @@ export const NavItem = (props: INavItemProps) => {
                     }),
                     locationPath === link.key &&
                       "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
-                    `justify-start w-full`,
+                    `justify-start w-full text-sm`,
                     getRecursive(link) ? "text-primary" : ""
                   )}
                 >
@@ -74,7 +74,7 @@ export const NavItem = (props: INavItemProps) => {
                 }),
                 locationPath === link.key &&
                   "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
-                `justify-start w-full`,
+                `justify-start w-full text-sm`,
                 getRecursive(link) ? "text-primary" : ""
               )}
             >
@@ -122,7 +122,7 @@ export const NavItem = (props: INavItemProps) => {
               "h-9 w-9",
               locationPath === link.key &&
                 "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white",
-              `justify-start w-full px-3 text-xs`
+              `justify-start w-full px-3 text-sm`
             )}
           >
             {isClosed ? (

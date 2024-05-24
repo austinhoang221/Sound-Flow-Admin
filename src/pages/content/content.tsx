@@ -7,16 +7,11 @@ import {
 import { cn } from "@/lib/utils";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import {
-  AlertCircle,
-  Archive,
-  ArchiveX,
-  File,
-  Inbox,
-  MessagesSquare,
-  Send,
-  ShoppingCart,
-  Trash2,
-  Users2,
+  AudioWaveform,
+  DiscAlbum,
+  Home,
+  ListMusic,
+  UserCog,
 } from "lucide-react";
 import { Nav } from "./nav/navigation";
 import { Outlet } from "react-router";
@@ -29,18 +24,18 @@ export function Content() {
     <TooltipProvider delayDuration={0}>
       <ResizablePanelGroup
         direction="horizontal"
-        onLayout={(sizes: number[]) => {
-          document.cookie = `react-resizable-panels:layout=${JSON.stringify(
-            sizes
-          )}`;
-        }}
-        className="h-full max-h-[800px] items-stretch"
+        // onLayout={(sizes: number[]) => {
+        //   document.cookie = `react-resizable-panels:layout=${JSON.stringify(
+        //     sizes
+        //   )}`;
+        // }}
+        className="h-screen items-stretch"
       >
         <ResizablePanel
           defaultSize={235}
           collapsedSize={8}
           collapsible={true}
-          minSize={8}
+          minSize={10}
           maxSize={15}
           onCollapse={() => setIsCollapsed((prev) => !prev)}
           onExpand={() => setIsCollapsed((prev) => !prev)}
@@ -51,8 +46,8 @@ export function Content() {
         >
           <div
             className={cn(
-              "flex h-[52px] items-center justify-center",
-              isCollapsed ? "h-[52px]" : "px-2"
+              "flex h-[80px] items-center justify-center",
+              isCollapsed ? "h-[80px]" : "px-2"
             )}
           ></div>
           <Separator />
@@ -60,118 +55,29 @@ export function Content() {
             isCollapsed={isCollapsed}
             links={[
               {
-                key: "inbox",
-                title: "Inbox",
-                icon: Inbox,
-
-                link: "",
-                children: [
-                  {
-                    key: "draft",
-                    title: "Drafts",
-                    icon: File,
-                    link: "link",
-                    children: [
-                      {
-                        key: "users",
-                        title: "USERS",
-                        icon: Send,
-
-                        link: "link",
-                        children: [
-                          {
-                            key: "users",
-                            title: "USERS1",
-                            icon: Send,
-
-                            link: "link",
-                          },
-                          {
-                            key: "junk12",
-                            title: "Junk",
-                            icon: ArchiveX,
-                            link: "link",
-                          },
-                        ],
-                      },
-                      {
-                        key: "junk1",
-                        title: "Junk",
-                        icon: ArchiveX,
-                        link: "link",
-                      },
-                    ],
-                  },
-                  {
-                    key: "tracks",
-                    title: "TRACKS",
-                    icon: Send,
-
-                    link: "link",
-                  },
-                  {
-                    key: "junk",
-                    title: "Junk",
-                    icon: ArchiveX,
-
-                    link: "link",
-                  },
-                  {
-                    key: "trash",
-                    title: "Trash",
-                    icon: Trash2,
-
-                    link: "link",
-                  },
-                  {
-                    key: "archive",
-                    title: "Archive",
-                    icon: Archive,
-
-                    link: "link",
-                  },
-                ],
-              },
-            ]}
-          />
-          <Separator />
-          <Nav
-            isCollapsed={isCollapsed}
-            links={[
-              {
-                key: "social",
-                title: "Social",
-                icon: Users2,
-
-                link: "",
+                key: "home",
+                title: "Dashboard",
+                icon: Home,
               },
               {
-                key: "updates",
-                title: "Updates",
-                icon: AlertCircle,
-
-                link: "",
+                key: "album",
+                title: "Album",
+                icon: DiscAlbum,
               },
               {
-                key: "forums",
-                title: "Forums",
-                icon: MessagesSquare,
-
-                link: "",
+                key: "genre",
+                title: "Genre",
+                icon: ListMusic,
               },
               {
-                key: "shopping",
-                title: "Shopping",
-                icon: ShoppingCart,
-
-                link: "",
+                key: "tracks",
+                title: "Tracks",
+                icon: AudioWaveform,
               },
               {
-                key: "promotions",
-                title: "Promotions",
-                icon: Archive,
-
-                link: "",
+                key: "user",
+                title: "User",
+                icon: UserCog,
               },
             ]}
           />

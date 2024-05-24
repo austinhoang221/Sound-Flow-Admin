@@ -9,7 +9,6 @@ export interface LinkProps {
   key: string;
   title: string;
   icon: LucideIcon;
-  link: string;
   children?: LinkProps[];
 }
 interface NavProps {

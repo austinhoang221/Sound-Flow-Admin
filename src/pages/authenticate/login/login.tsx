@@ -19,6 +19,7 @@ import { useToast } from "@/components/ui/use-toast";
 import "./login.scss";
 import { useState } from "react";
 import { ForgotPassword } from "../forgot-password/forgotPassword";
+import { ReloadIcon } from "@radix-ui/react-icons";
 
 const Logo = require("@/assets/images/logo.gif");
 const formSchema = z.object({
@@ -32,6 +33,7 @@ const formSchema = z.object({
 export function Login() {
   const navigate = useNavigate();
   const [isForgotPassword, setIsForgotPassword] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -43,6 +45,7 @@ export function Login() {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    setIsLoading(true);
     await AuthenticationService.logIn(values as ILoginModel).then((res) => {
       if (res?.code === StatusCode.OK) {
         localStorage.setItem("user", JSON.stringify(res?.data));
@@ -54,6 +57,7 @@ export function Login() {
           description: "Incorrect username or password",
         });
       }
+      setIsLoading(false);
     });
   };
 
@@ -134,7 +138,10 @@ export function Login() {
                     Forgot password?
                   </span>
                 </div>
-                <Button className="w-full" type="submit">
+                <Button className="w-full" type="submit" disabled={isLoading}>
+                  {isLoading && (
+                    <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
+                  )}
                   Login
                 </Button>
               </form>
