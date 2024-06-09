@@ -7,11 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { CalendarDateRangePicker } from "@/components/ui/date-range-picker";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import React from "react";
-import { UserNav } from "../nav/user-nav/user-nav";
 import { Overview } from "./overview";
 import { RecentSales } from "./recent-sale";
 

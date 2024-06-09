@@ -1,6 +1,5 @@
 import { LucideIcon } from "lucide-react";
 
-import { cn } from "@/lib/utils";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 import { NavItem } from "./navItem";

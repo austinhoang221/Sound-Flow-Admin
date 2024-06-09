@@ -59,13 +59,7 @@ export function Content() {
                 <h1 className="font-bold text-xl">Sound Flow</h1>
               </>
             ) : (
-              <>
-                <img
-                  alt="logo"
-                  src={Logo}
-                  className="size-10 ml-auto mr-auto"
-                />
-              </>
+              <img alt="logo" src={Logo} className="size-10 ml-auto mr-auto" />
             )}
           </Link>
           <Nav
@@ -93,7 +87,7 @@ export function Content() {
               },
               {
                 key: "user",
-                title: "User",
+                title: "Users",
                 icon: UserCog,
               },
             ]}

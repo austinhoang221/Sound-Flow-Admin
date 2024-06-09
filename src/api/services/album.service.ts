@@ -14,7 +14,7 @@ export class AlbumService {
         Endpoint.Album +
         `?currentPage=${payload.currentPage}&pageSize=${payload.pageSize}`;
       if (payload.filter) request += `&filter=${payload.filter}`;
-      const response: IPaginateResponseModel<IResponseModel<IAlbum>> =
+      const response: IResponseModel<IPaginateResponseModel<IAlbum>> =
         await axiosInstance.get(request);
       return response;
     } catch (error) {
@@ -22,7 +22,7 @@ export class AlbumService {
     }
   };
 
-  public static readonly create = async (payload: IAlbum) => {
+  public static readonly create = async (payload: any) => {
     try {
       const response: IResponseModel<IAlbum> = await axiosInstance.post(
         Endpoint.Album,
@@ -34,7 +34,7 @@ export class AlbumService {
     }
   };
 
-  public static readonly update = async (id: string, payload: IAlbum) => {
+  public static readonly update = async (id: string, payload: any) => {
     try {
       const response: IResponseModel<IAlbum> = await axiosInstance.put(
         Endpoint.Album + "/" + id,
@@ -48,7 +48,9 @@ export class AlbumService {
 
   public static readonly get = async (id: string) => {
     try {
-      const response: IResponseModel<IAlbum> = await axiosInstance.get(id);
+      const response: IResponseModel<IAlbum> = await axiosInstance.get(
+        Endpoint.Album + "/" + id
+      );
       return response;
     } catch (error) {
       console.error("Error making request:", error);
