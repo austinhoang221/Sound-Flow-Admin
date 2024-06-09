@@ -8,4 +8,5 @@ export default class Endpoint {
   public static readonly Genre: string = this.baseUrl + "genre";
   public static readonly Track: string = this.baseUrl + "track";
   public static readonly User: string = this.baseUrl + "user";
+  public static readonly File: string = this.baseUrl + "file";
 }

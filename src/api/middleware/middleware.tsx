@@ -1,4 +1,5 @@
 import { useToast } from "@/components/ui/use-toast";
+import { useUtils } from "@/utils/utils";
 import axios, { AxiosResponse } from "axios";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
@@ -11,7 +12,7 @@ export const axiosInstance = axios.create({
 
 const AxiosInterceptor = ({ children }: any) => {
   const { toast } = useToast();
-  const navigate = useNavigate();
+  const { logOut } = useUtils();
   useEffect(() => {
     const resInterceptor = (response: AxiosResponse) => {
       return response;
@@ -35,7 +36,7 @@ const AxiosInterceptor = ({ children }: any) => {
             title: "",
             description: "UnAuthorized",
           });
-          navigate("/login");
+          logOut();
           break;
         case 500:
           toast({

@@ -28,6 +28,8 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/tracks" element={<Tracks />} />
               <Route path="/album" element={<Album />} />
+              <Route path="/album/:configType" element={<Album />} />
+              <Route path="/album/:configType/:id" element={<Album />} />
               <Route path="/genre" element={<Genre />} />
               <Route path="/user" element={<User />} />
             </Route>
